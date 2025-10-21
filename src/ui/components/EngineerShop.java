@@ -24,7 +24,6 @@ public class EngineerShop extends VBox {
         btnSistemas.getStyleClass().add("shop-button");
         btnSistemas.setPrefWidth(180);
 
-        // Botón para Ingeniero Civil
         ToggleButton btnCivil = new ToggleButton("Ing. Civil (100 E)");
         btnCivil.setToggleGroup(toggleGroup);
         btnCivil.setUserData("CIVIL");
@@ -54,6 +53,8 @@ public class EngineerShop extends VBox {
     }
 
     public void deseleccionar() {
-        toggleGroup.selectToggle(null);
+        if (toggleGroup.getSelectedToggle() != null) {
+            toggleGroup.getSelectedToggle().setSelected(false);
+        }
     }
 }

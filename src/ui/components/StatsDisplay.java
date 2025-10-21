@@ -12,14 +12,13 @@ public class StatsDisplay extends HBox {
     private Label labelVidaNucleo;
 
     public StatsDisplay() {
-
         labelEnergia = new Label("Energía: 0");
         labelOleada = new Label("Oleada: 0");
         labelVidaNucleo = new Label("Vida Núcleo: 100");
 
         labelEnergia.getStyleClass().add("stats-label");
         labelOleada.getStyleClass().add("stats-label");
-        labelVidaNucleo.getStyleClass().add("stats-label-vital"); // Un color diferente para la vida
+        labelVidaNucleo.getStyleClass().add("stats-label-vital");
 
         this.setSpacing(20);
         this.setAlignment(Pos.CENTER_LEFT);

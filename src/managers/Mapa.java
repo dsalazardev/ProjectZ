@@ -1,6 +1,6 @@
 package managers;
 
-import entities.engineers.*;
+import entities.engineers.Ingeniero;
 import entities.zombies.Zombie;
 import utils.Posicion;
 
@@ -11,22 +11,27 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 public class Mapa {
+
     private final int ancho;
     private final int alto;
+
     private final Casilla[][] cuadricula;
     private final List<Ingeniero> ingenierosActivos = new CopyOnWriteArrayList<>();
     private final List<Zombie> zombiesActivos = new CopyOnWriteArrayList<>();
     public final Lock mapaLock = new ReentrantLock();
 
     public Mapa(int ancho, int alto) {
+
         this.ancho = ancho;
         this.alto = alto;
+
         this.cuadricula = new Casilla[alto][ancho];
         for (int y = 0; y < alto; y++) {
             for (int x = 0; x < ancho; x++) {
                 cuadricula[y][x] = new Casilla();
                 if (y == alto / 2) {
                     cuadricula[y][x].setEsCamino(true);
+                    cuadricula[y][x].setObstaculo(false);
                 } else {
                     cuadricula[y][x].setEsCamino(false);
                     cuadricula[y][x].setObstaculo(true);
@@ -35,6 +40,7 @@ public class Mapa {
         }
         System.out.println("Mapa inicializado (" + ancho + "x" + alto + ")");
     }
+
 
     public void agregarIngeniero(Ingeniero ing) {
         if (ing != null) {
@@ -46,23 +52,21 @@ public class Mapa {
     public void eliminarIngeniero(Ingeniero ing) {
         if (ing != null) {
             ingenierosActivos.remove(ing);
-            System.out.println("Ingeniero " + ing.getName() + " eliminado del mapa.");
         }
     }
 
     public void agregarZombie(Zombie zom) {
         if (zom != null) {
             zombiesActivos.add(zom);
-            System.out.println("Zombie " + zom.getName() + " añadido al mapa.");
         }
     }
 
     public void eliminarZombie(Zombie zom) {
         if (zom != null) {
             zombiesActivos.remove(zom);
-            System.out.println("Zombie " + zom.getName() + " eliminado del mapa.");
         }
     }
+
 
     public void colocarCortafuegos(int x, int y, long duracionMs) {
         mapaLock.lock();
@@ -92,6 +96,7 @@ public class Mapa {
         }
     }
 
+
     public List<Zombie> getZombiesEnRango(Posicion centro, int rango) {
         return zombiesActivos.stream()
                 .filter(z -> !z.isMuerto() && centro.distanciaA(z.getPosicion()) <= rango)
@@ -100,12 +105,7 @@ public class Mapa {
 
     public Casilla getCasilla(int x, int y) {
         if (esPosicionValida(x, y)) {
-            mapaLock.lock();
-            try {
             return cuadricula[y][x];
-            } finally {
-                mapaLock.unlock();
-             }
         }
         return null;
     }
@@ -117,7 +117,7 @@ public class Mapa {
     public boolean esCasillaValidaParaCortafuegos(int x, int y) {
         mapaLock.lock();
         try {
-            return esPosicionValida(x,y) && cuadricula[y][x].esCamino() && !cuadricula[y][x].estaRalentizada(); // Y es parte del camino?
+            return esPosicionValida(x, y) && cuadricula[y][x].esCamino() && !cuadricula[y][x].estaRalentizada();
         } finally {
             mapaLock.unlock();
         }
@@ -135,6 +135,11 @@ public class Mapa {
         return zombiesActivos;
     }
 
-    public int getAncho() { return ancho; }
-    public int getAlto() { return alto; }
+    public int getAncho() {
+        return ancho;
+    }
+
+    public int getAlto() {
+        return alto;
+    }
 }
