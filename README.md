@@ -1,6 +1,6 @@
-# Project Z: Simulación de Tower Defense Multihilo
+# INgenieros vs Zombies: Simulación Multihilo
 
-Este proyecto es una implementación de un juego "Tower Defense" (Ingenieros vs. Zombis) desarrollado en Java, diseñado como un caso de estudio práctico para la asignatura de **Programación Distribuida y Concurrente**.
+Este proyecto es una implementación de un juego (Ingenieros vs. Zombis) desarrollado en Java, diseñado como un caso de estudio práctico para la asignatura de **Programación Distribuida y Concurrente**.
 
 El objetivo principal no es la jugabilidad, sino **demostrar una arquitectura multihilo funcional** donde cada entidad del juego (defensores, enemigos, generadores) opera como un hilo independiente, y cómo gestionar de forma segura la comunicación y el estado compartido entre ellos.
 
