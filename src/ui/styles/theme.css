@@ -1,0 +1,60 @@
+/* --- Estilo Base "Tech-Noir" --- */
+.root {
+    -fx-background-color: #121212; /* Fondo oscuro principal */
+    -fx-font-family: "Consolas", "Monospace", sans-serif;
+    -fx-text-fill: #E0FFFF; /* Texto cian pálido (Light Cyan) */
+}
+
+/* --- Estilos de la Barra de Estadísticas (Top) --- */
+.stats-bar {
+    -fx-background-color: #1F1F1F; /* Fondo ligeramente más claro */
+    -fx-border-color: #00FFFF; /* Borde cian/neón */
+    -fx-border-width: 0 0 2px 0; /* Solo borde inferior */
+}
+
+.stats-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #E0FFFF; /* Texto cian pálido */
+    -fx-font-weight: bold;
+}
+
+.stats-label-vital {
+    -fx-font-size: 16px;
+    -fx-text-fill: #FF4500; /* Texto naranja/rojo para vida */
+    -fx-font-weight: bold;
+}
+
+/* --- Estilos de la Tienda (Right) --- */
+.shop-pane {
+    -fx-background-color: #1F1F1F;
+    -fx-border-color: #00FFFF;
+    -fx-border-width: 0 0 0 2px; /* Solo borde izquierdo */
+}
+
+.shop-title {
+    -fx-font-size: 20px;
+    -fx-text-fill: #00FFFF; /* Título en cian brillante */
+    -fx-padding: 0 0 10px 0;
+}
+
+.shop-button {
+    -fx-background-color: #333;
+    -fx-text-fill: #E0FFFF;
+    -fx-font-size: 14px;
+    -fx-border-color: #555;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+}
+
+.shop-button:hover {
+    -fx-background-color: #444;
+    -fx-border-color: #E0FFFF;
+}
+
+/* Estilo para el botón cuando está seleccionado */
+.shop-button:selected {
+    -fx-background-color: #008B8B; /* Cian oscuro */
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: #00FFFF; /* Borde cian brillante */
+    -fx-font-weight: bold;
+}

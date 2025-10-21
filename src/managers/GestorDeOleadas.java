@@ -75,4 +75,8 @@ public class GestorDeOleadas extends Thread {
     */
 
     }
+
+    public int getNumeroOleada() {
+        return this.numeroOleada;
+    }
 }
