@@ -1,4 +1,4 @@
-# INgenieros vs Zombies: Simulación Multihilo
+# Ingenieros vs Zombies: Simulación Multihilo
 
 Este proyecto es una implementación de un juego (Ingenieros vs. Zombis) desarrollado en Java, diseñado como un caso de estudio práctico para la asignatura de **Programación Distribuida y Concurrente**.
 
